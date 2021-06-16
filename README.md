@@ -18,3 +18,6 @@ Have a look into defauts/main.yml for a full list.
 + the ``prometheus_libvirt_exporter__repo`` is pointing to the ``https://github.com/zhangjianweibj/prometheus-libvirt-exporter`` Repo.
 + If you set ``submodules_versioncheck`` to ``true`` we try to prevent running a old version of this role at your deployed hosts.
 
+ Dahsboard
+-----------
+Maybe you want to inspire your Grafana Dashboard at the [13131](https://grafana.com/grafana/dashboards/13131) Dashboard.
