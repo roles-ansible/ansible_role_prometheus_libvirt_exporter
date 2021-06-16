@@ -1,4 +1,4 @@
----iiii
+---
 - name: check if latest binary exist
   become: true
   ansible.builtin.stat:
@@ -45,4 +45,4 @@
     dest: "/usr/local/bin/{{ prometheus_libvirt_exporter__filename }}"
     owner: 'root'
     group: 'root'
-    state: link
+    state: 'link'
