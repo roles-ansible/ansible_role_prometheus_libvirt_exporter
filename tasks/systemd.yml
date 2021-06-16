@@ -1,0 +1,15 @@
+---
+- name: copy systemd service
+  become: true
+  ansible.builtin.template:
+    src: templates/prometheus-libvirt-exporter.service.j2
+    dest: /lib/systemd/system/prometheus-libvirt-exporter.service
+    owner: root
+    group: root
+    mode: 0644
+  notify: systemctl restart prometheus-libvirt-exporter.service
+
+- name: reload systemd
+  become: true
+  ansible.builtin.systemd:
+    daemon_reload: true

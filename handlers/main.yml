@@ -1,0 +1,6 @@
+---
+- name: systemctl restart prometheus-libvirt-exporter.service
+  become: true
+  ansible.builtin.systemd:
+    name: prometheus-libvirt-exporter.service
+    state: restarted
