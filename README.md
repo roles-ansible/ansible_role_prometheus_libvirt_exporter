@@ -2,7 +2,7 @@
 ==========================================
 
 [![galaxy](https://raw.githubusercontent.com/roles-ansible/ansible_role_prometheus-libvirt-exporter/main/.github/galaxy.svg)](https://galaxy.ansible.com/do1jlr/prometheus_libvirt_exporter)
-[![license](https://raw.githubusercontent.com/roles-ansible/ansible_role_prometheus-libvirt-exporter/main/.github/ilicense.svg)](https://github.com/roles-ansible/ansible_role_prometheus-libvirt-exporter/blob/main/LICENSE)
+[![license](https://raw.githubusercontent.com/roles-ansible/ansible_role_prometheus-libvirt-exporter/main/.github/license.svg)](https://github.com/roles-ansible/ansible_role_prometheus-libvirt-exporter/blob/main/LICENSE)
 
 Ansible role to install the golang prometheus node exporter from [github.com/zhangjianweibj/prometheus-libvirt-exporter](https://github.com/zhangjianweibj/prometheus-libvirt-exporter.git).
 
