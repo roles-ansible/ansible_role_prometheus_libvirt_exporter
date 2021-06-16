@@ -1,4 +1,4 @@
 ---
 # versionscheck
-playbook_version_number: 6   # should be a integer
+playbook_version_number: 7   # should be a integer
 playbook_version_path: 'role-do1jlr.ansible_role_prometheus-libvirt-exporter.version'
