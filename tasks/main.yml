@@ -1,3 +1,7 @@
 ---
-- include_tasks: versioncheck.yml
+- name: perform optional versionscheck
+  ansible.builtin.include_tasks: versioncheck.yml
   when: submodules_versioncheck|bool
+
+- name: Download and install prometheus-libvirt-exporter
+  ansible.builtin.include_tasks: install.yml

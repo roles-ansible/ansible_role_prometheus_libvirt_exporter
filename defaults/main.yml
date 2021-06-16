@@ -1,3 +1,8 @@
 ---
+prometheus-libvirt-exporter__version: '1.1.0'
+prometheus-libvirt-exporter__repo: 'https://github.com/zhangjianweibj/prometheus-libvirt-exporter'
+prometheus-libvirt-exporter__filename: 'prometheus-libvirt-exporter'
+prometheus-libvirt-exporter__download_url: "{{ prometheus-libvirt-exporter__repo }}/releases/download/v{{ prometheus-libvirt-exporter__version }}/{{ prometheus-libvirt-exporter__filename }}.tar.gz"
+
 # should we do a version check? (recomended)
 submodules_versioncheck: false
