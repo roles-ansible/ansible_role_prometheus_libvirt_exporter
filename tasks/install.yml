@@ -38,6 +38,7 @@
         owner: 'root'
         group: 'root'
         remote_src: true
+      notify: Systemctl restart prometheus-libvirt-exporter.service
 
 - name: Link prometheus-libvirt-exporter binary
   become: true
@@ -47,3 +48,4 @@
     owner: 'root'
     group: 'root'
     state: 'link'
+  notify: Systemctl restart prometheus-libvirt-exporter.service
