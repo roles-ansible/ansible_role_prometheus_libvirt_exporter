@@ -4,11 +4,11 @@
 [![galaxy](https://raw.githubusercontent.com/roles-ansible/ansible_role_prometheus-libvirt-exporter/main/.github/galaxy.svg)](https://galaxy.ansible.com/do1jlr/prometheus_libvirt_exporter)
 [![license](https://raw.githubusercontent.com/roles-ansible/ansible_role_prometheus-libvirt-exporter/main/.github/license.svg)](https://github.com/roles-ansible/ansible_role_prometheus-libvirt-exporter/blob/main/LICENSE)
 
-Ansible role to install the golang prometheus node exporter from [github.com/zhangjianweibj/prometheus-libvirt-exporter](https://github.com/zhangjianweibj/prometheus-libvirt-exporter.git).
+Ansible role to install the golang prometheus node exporter from [github.com/thongth1998/openstack-libvirt-exporter](https://github.com/thongth1998/openstack-libvirt-exporter.git).
 
  What does this role do?
 -------------------------
-First we download the latest release from the [prometheus-libvirt-exporter](https://github.com/zhangjianweibj/prometheus-libvirt-exporter.git) Releases. Obviously we extract it and create a symlink to the binary go executable to /usr/local/bin/.
+First we download the latest release from the [prometheus-libvirt-exporter](https://github.com/thongth1998/openstack-libvirt-exporter/releases) Releases. Obviously we extract it and create a symlink to the binary go executable to /usr/local/bin/.
 Then we install, start and enable a systemd service that will run the /usr/local/bin/prometheus-libvirt-exporter binary.
 
  Variables:
