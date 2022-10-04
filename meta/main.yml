@@ -4,20 +4,24 @@ galaxy_info:
   author: do1jlr
   description: Ansible role toinstall a golang prometheus libvirt exporter.
   license: "MIT"
-  min_ansible_version: 2.11
-  github_branch: main
+  min_ansible_version: "2.12"
   platforms:
-    - name: Archlinux
-      versions: all
+    - name: ArchLinux
+      versions:
+        - all
     - name: Debian
-      versions: all
+      versions:
+        - all
     - name: Ubuntu
-      versions: all
+      versions:
+        - all
     - name: Fedora
-      versions: all
+      versions:
+        - all
   galaxy_tags:
     - golang
     - prometheus
+    - openstack
     - libvirt
     - exporter
 dependencies: []

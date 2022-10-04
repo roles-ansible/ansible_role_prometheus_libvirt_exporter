@@ -1,22 +1,24 @@
 ---
-- name: check if latest binary exist
+- name: Check if latest binary exist
   become: true
   ansible.builtin.stat:
     path: "/opt/prometheus-libvirt-exporter/v{{ prometheus_libvirt_exporter__version }}/{{ prometheus_libvirt_exporter__filename }}"
   register: prometheus_binary_src
 
-- name: download binary if needed
+- name: Download binary if needed
+  when: not prometheus_binary_src.stat.exists
   block:
     - name: Download latest release
       ansible.builtin.get_url:
         url: "{{ prometheus_libvirt_exporter__download_url }}"
         dest: "/tmp/{{ prometheus_libvirt_exporter__filename }}.{{ prometheus_libvirt_exporter__version }}.tar.gz"
+        mode: 0640
       register: _download_archive
       until: _download_archive is succeeded
       retries: 5
       delay: 2
 
-    - name: mkdir /opt/prometheus-libvirt-exporter
+    - name: Mkdir /opt/prometheus-libvirt-exporter
       become: true
       ansible.builtin.file:
         path: "{{ item }}"
@@ -28,7 +30,7 @@
         - '/opt/prometheus-libvirt-exporter'
         - "/opt/prometheus-libvirt-exporter/v{{ prometheus_libvirt_exporter__version }}"
 
-    - name: unarchive prometheus_libvirt_exporter
+    - name: Unarchive prometheus_libvirt_exporter
       become: true
       ansible.builtin.unarchive:
         src: "/tmp/{{ prometheus_libvirt_exporter__filename }}.{{ prometheus_libvirt_exporter__version }}.tar.gz"
@@ -36,13 +38,14 @@
         owner: 'root'
         group: 'root'
         remote_src: true
-  when: not prometheus_binary_src.stat.exists
+      notify: Systemctl restart prometheus-libvirt-exporter.service
 
-- name: link prometheus-libvirt-exporter binary
+- name: Link prometheus-libvirt-exporter binary
   become: true
   ansible.builtin.file:
-    src: "/opt/prometheus-libvirt-exporter/v{{ prometheus_libvirt_exporter__version }}/{{ prometheus_libvirt_exporter__filename }}"
+    src: "/opt/prometheus-libvirt-exporter/v{{ prometheus_libvirt_exporter__version }}/openstack-libvirt-exporter-{{ prometheus_libvirt_exporter__version }}/{{ prometheus_libvirt_exporter__filename }}"
     dest: "/usr/local/bin/{{ prometheus_libvirt_exporter__filename }}"
     owner: 'root'
     group: 'root'
     state: 'link'
+  notify: Systemctl restart prometheus-libvirt-exporter.service
