@@ -1,10 +1,10 @@
 ---
-- name: perform optional versionscheck
+- name: Perform optional versionscheck
   ansible.builtin.include_tasks: versioncheck.yml
-  when: submodules_versioncheck|bool
+  when: submodules_versioncheck | bool
 
 - name: Download and install prometheus-libvirt-exporter
   ansible.builtin.include_tasks: install.yml
 
-- name: setup systemd service
+- name: Setup systemd service
   ansible.builtin.include_tasks: systemd.yml
