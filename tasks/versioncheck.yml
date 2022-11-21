@@ -33,7 +33,7 @@
   ansible.builtin.fail:
     msg: "Your ansible module has the version '{{ playbook_version_number }}' and is outdated. You need to update it!"
   when:
-    - playbook_version.content | default("Mgo=") | b64decode | int - 1 >= playbook_version_number | int and submodules_versioncheck | bool
+    - playbook_version.content|default("Mgo=")|b64decode|int - 1 >= playbook_version_number|int and submodules_versioncheck | bool
 
 - name: Write new version to remote disk
   become: true
@@ -42,4 +42,4 @@
     dest: "/etc/.ansible-version/{{ playbook_version_path }}"
     mode: '0644'
   when: submodules_versioncheck | bool
-  tags: skip_ansible_lint_rule_template-instead-of-copy
+  tags: skip_ansible_lint_template-instead-of-copy
